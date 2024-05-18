@@ -1,0 +1,27 @@
+package com.example.RegisterLogin.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.RegisterLogin.Model.EmployeeDetalis;
+import com.example.RegisterLogin.ServiceImpl.EmployeeDetalisImpl;
+
+@RestController
+public class EmployeeDetalisController {
+	
+	@Autowired
+	public EmployeeDetalisImpl employeeDetalisImpl;
+	
+	@PostMapping("/save")
+	public ResponseEntity<EmployeeDetalis> createEmployeeDetalis(@RequestBody EmployeeDetalis employeeDetalis)
+	{
+		EmployeeDetalis createEmployeeDetalis=this.employeeDetalisImpl.SaveContact(employeeDetalis);
+		System.out.println(createEmployeeDetalis);
+		
+		return ResponseEntity.ok().body(createEmployeeDetalis);
+	}
+
+}

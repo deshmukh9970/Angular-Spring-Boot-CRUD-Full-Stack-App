@@ -1,0 +1,10 @@
+package com.example.RegisterLogin.Repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+import com.example.RegisterLogin.Model.EmployeeDetalis;
+
+public interface EmployeeDetalisRepo extends JpaRepository<EmployeeDetalis,Integer> {
+
+}
